@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VNC Remote - Helper Setup Guide | Helper 安裝教學</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="site-name">VNC Remote</a>
+        <div class="nav-links">
+            <a href="helper.html" class="active">Helper 教學</a>
+            <a href="privacy.html">隱私政策</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="lang-toggle">
+            <a href="#zh">繁體中文</a>
+            <a href="#en">English</a>
+        </div>
+
+        <!-- 繁體中文 -->
+        <div id="zh">
+            <h1>VNC Remote Helper 安裝教學</h1>
+            <div class="meta">適用於 macOS | 版本 1.0</div>
+
+            <div class="highlight">
+                <strong>什麼是 Helper？</strong><br>
+                VNC Remote Helper 是一個選用的 macOS 輔助工具。安裝後，您可以在遠端桌面中使用<strong>注音、拼音、日文</strong>等非英文輸入法。不安裝 Helper 也能正常使用 VNC Remote，只是無法使用輸入法。
+            </div>
+
+            <h2>為什麼需要 Helper？</h2>
+            <p>VNC 協定只能傳送英文按鍵訊號，無法觸發 macOS 的輸入法系統（如注音、拼音）。Helper 透過在 macOS 端直接注入鍵盤事件，讓輸入法能正常運作。</p>
+            <p>運作架構：</p>
+            <ul>
+                <li><strong>VNC 通道</strong>（port 5900）：傳輸螢幕畫面和滑鼠操作</li>
+                <li><strong>Helper 通道</strong>（port 50001）：傳輸鍵盤事件，讓輸入法可以辨識</li>
+            </ul>
+
+            <h2>安裝步驟</h2>
+
+            <div class="step">
+                <p><span class="step-number">1</span> <strong>下載原始碼</strong></p>
+                <p>打開 Mac 的「終端機」(Terminal)，執行：</p>
+                <pre><code>git clone https://github.com/adriechang/VNCRemote-Site.git
+cd VNCRemote-Site</code></pre>
+                <div class="warning">
+                    <strong>注意</strong>：目前 Helper 尚未提供預編譯版本，需要從原始碼編譯。您的 Mac 需要安裝 Xcode Command Line Tools。如果還沒有安裝，終端機會自動提示您安裝。
+                </div>
+            </div>
+
+            <div class="step">
+                <p><span class="step-number">2</span> <strong>編譯 Helper</strong></p>
+                <pre><code>cd HIDInjectorHelper
+make build</code></pre>
+                <p>編譯成功後會產生 <code>HIDInjectorHelper</code> 執行檔。</p>
+            </div>
+
+            <div class="step">
+                <p><span class="step-number">3</span> <strong>執行 Helper</strong></p>
+                <pre><code>./HIDInjectorHelper</code></pre>
+                <p>成功啟動後會看到類似訊息：</p>
+                <pre><code>🚀 Starting HID Injector Helper v1.0
+✅ HID Injector Server listening on port 50001
+🔑 PIN: 123456</code></pre>
+                <p>請記下顯示的 <strong>PIN 碼</strong>，iPad 連線時需要輸入。</p>
+            </div>
+
+            <div class="step">
+                <p><span class="step-number">4</span> <strong>授予 Accessibility 權限</strong></p>
+                <p>macOS 會提示需要「輔助使用」權限：</p>
+                <ol>
+                    <li>打開「系統設定」→「隱私權與安全性」→「輔助使用」</li>
+                    <li>找到 <code>HIDInjectorHelper</code>（或 <code>Terminal</code>）</li>
+                    <li>啟用權限</li>
+                    <li><strong>重新啟動 Helper</strong>（授權後需要重啟才會生效）</li>
+                </ol>
+            </div>
+
+            <h2>使用方式</h2>
+
+            <h3>在 Mac 上</h3>
+            <ol>
+                <li>確保「系統設定」→「共享」→「螢幕共享」已啟用</li>
+                <li>執行 Helper：<code>./HIDInjectorHelper</code></li>
+                <li>確認看到「listening on port 50001」</li>
+            </ol>
+
+            <h3>在 iPad 上</h3>
+            <ol>
+                <li>連接外接鍵盤（藍牙或有線）</li>
+                <li>開啟 VNC Remote App → 連線到 Mac</li>
+                <li>連線成功後，App 會自動嘗試連接 Helper</li>
+                <li>輸入 Mac 上顯示的 PIN 碼</li>
+            </ol>
+
+            <h3>測試輸入法</h3>
+            <ol>
+                <li>在遠端 Mac 上打開任一文字編輯器（TextEdit、備忘錄等）</li>
+                <li>按 <code>Control + Space</code> 切換到注音（或其他輸入法）</li>
+                <li>用 iPad 外接鍵盤輸入，例如：ㄉㄚˋ</li>
+                <li>應該會看到選字候選清單</li>
+            </ol>
+
+            <h2>常見問題</h2>
+
+            <h3>Helper 啟動失敗</h3>
+            <p>可能是 port 50001 被佔用。檢查方法：</p>
+            <pre><code>lsof -i :50001</code></pre>
+            <p>如果有其他程式佔用，先關閉該程式再重試。</p>
+
+            <h3>iPad 無法連接 Helper</h3>
+            <ul>
+                <li>確認 iPad 和 Mac 在同一個區域網路</li>
+                <li>檢查 macOS 防火牆是否擋住了 port 50001</li>
+                <li>確認 PIN 碼輸入正確</li>
+            </ul>
+
+            <h3>連上了但輸入法不工作</h3>
+            <ul>
+                <li>確認已授予 Accessibility 權限</li>
+                <li>授權後需要<strong>重新啟動</strong> Helper</li>
+                <li>確認 Mac 上已安裝並切換到目標輸入法</li>
+            </ul>
+
+            <h3>不安裝 Helper 可以嗎？</h3>
+            <p>可以。不安裝 Helper 的話，VNC Remote 的所有功能都正常運作，只是<strong>無法使用中文、日文等輸入法</strong>。英文輸入和所有快捷鍵不受影響。</p>
+
+            <h2>聯絡我們</h2>
+            <p>如有問題或建議：</p>
+            <ul>
+                <li><strong>Email</strong>: huitzuchang8@gmail.com</li>
+                <li><strong>GitHub</strong>: <a href="https://github.com/adriechang/VNCRemote-Site/issues">https://github.com/adriechang/VNCRemote-Site/issues</a></li>
+            </ul>
+        </div>
+
+        <hr style="margin: 3em 0; border: none; border-top: 2px solid #eee;">
+
+        <!-- English -->
+        <div id="en">
+            <h1>VNC Remote Helper Setup Guide</h1>
+            <div class="meta">For macOS | Version 1.0</div>
+
+            <div class="highlight">
+                <strong>What is Helper?</strong><br>
+                VNC Remote Helper is an optional macOS companion tool. Once installed, you can use <strong>Chinese (Zhuyin/Pinyin), Japanese, Korean</strong>, and other non-English input methods on the remote desktop. VNC Remote works fine without Helper — you just won't be able to use input methods.
+            </div>
+
+            <h2>Why Do I Need Helper?</h2>
+            <p>The VNC protocol can only send English key signals and cannot trigger macOS input method systems (e.g., Zhuyin, Pinyin). Helper works by injecting keyboard events directly on the macOS side, allowing input methods to function properly.</p>
+            <p>Architecture:</p>
+            <ul>
+                <li><strong>VNC Channel</strong> (port 5900): Transmits screen display and mouse operations</li>
+                <li><strong>Helper Channel</strong> (port 50001): Transmits keyboard events for input method recognition</li>
+            </ul>
+
+            <h2>Installation</h2>
+
+            <div class="step">
+                <p><span class="step-number">1</span> <strong>Download Source Code</strong></p>
+                <p>Open Terminal on your Mac and run:</p>
+                <pre><code>git clone https://github.com/adriechang/VNCRemote-Site.git
+cd VNCRemote-Site</code></pre>
+                <div class="warning">
+                    <strong>Note</strong>: Pre-built binaries are not yet available. You'll need to compile from source. Your Mac needs Xcode Command Line Tools installed. If not already installed, Terminal will prompt you automatically.
+                </div>
+            </div>
+
+            <div class="step">
+                <p><span class="step-number">2</span> <strong>Build Helper</strong></p>
+                <pre><code>cd HIDInjectorHelper
+make build</code></pre>
+                <p>On success, the <code>HIDInjectorHelper</code> executable will be created.</p>
+            </div>
+
+            <div class="step">
+                <p><span class="step-number">3</span> <strong>Run Helper</strong></p>
+                <pre><code>./HIDInjectorHelper</code></pre>
+                <p>On successful launch, you'll see:</p>
+                <pre><code>🚀 Starting HID Injector Helper v1.0
+✅ HID Injector Server listening on port 50001
+🔑 PIN: 123456</code></pre>
+                <p>Note the <strong>PIN code</strong> displayed — you'll need it when connecting from iPad.</p>
+            </div>
+
+            <div class="step">
+                <p><span class="step-number">4</span> <strong>Grant Accessibility Permission</strong></p>
+                <p>macOS will prompt for Accessibility access:</p>
+                <ol>
+                    <li>Open System Settings → Privacy & Security → Accessibility</li>
+                    <li>Find <code>HIDInjectorHelper</code> (or <code>Terminal</code>)</li>
+                    <li>Enable the toggle</li>
+                    <li><strong>Restart Helper</strong> (required after granting permission)</li>
+                </ol>
+            </div>
+
+            <h2>Usage</h2>
+
+            <h3>On Your Mac</h3>
+            <ol>
+                <li>Ensure Screen Sharing is enabled (System Settings → Sharing)</li>
+                <li>Run Helper: <code>./HIDInjectorHelper</code></li>
+                <li>Confirm you see "listening on port 50001"</li>
+            </ol>
+
+            <h3>On Your iPad</h3>
+            <ol>
+                <li>Connect an external keyboard (Bluetooth or wired)</li>
+                <li>Open VNC Remote App → Connect to your Mac</li>
+                <li>After connecting, the app will automatically attempt to connect to Helper</li>
+                <li>Enter the PIN code shown on your Mac</li>
+            </ol>
+
+            <h3>Test Input Methods</h3>
+            <ol>
+                <li>Open any text editor on the remote Mac (TextEdit, Notes, etc.)</li>
+                <li>Press <code>Control + Space</code> to switch input methods</li>
+                <li>Type using your iPad external keyboard</li>
+                <li>You should see the input method candidate list appear</li>
+            </ol>
+
+            <h2>Troubleshooting</h2>
+
+            <h3>Helper Fails to Start</h3>
+            <p>Port 50001 may be in use. Check with:</p>
+            <pre><code>lsof -i :50001</code></pre>
+            <p>If another process is using the port, close it and try again.</p>
+
+            <h3>iPad Can't Connect to Helper</h3>
+            <ul>
+                <li>Ensure iPad and Mac are on the same local network</li>
+                <li>Check if macOS firewall is blocking port 50001</li>
+                <li>Verify the PIN code is entered correctly</li>
+            </ul>
+
+            <h3>Connected but Input Methods Don't Work</h3>
+            <ul>
+                <li>Confirm Accessibility permission has been granted</li>
+                <li><strong>Restart Helper</strong> after granting permission</li>
+                <li>Make sure the target input method is installed and selected on Mac</li>
+            </ul>
+
+            <h3>Do I Need Helper?</h3>
+            <p>No. Without Helper, all VNC Remote features work normally — you just <strong>can't use Chinese, Japanese, or other non-English input methods</strong>. English input and all keyboard shortcuts work fine without it.</p>
+
+            <h2>Contact Us</h2>
+            <p>Questions or suggestions:</p>
+            <ul>
+                <li><strong>Email</strong>: huitzuchang8@gmail.com</li>
+                <li><strong>GitHub</strong>: <a href="https://github.com/adriechang/VNCRemote-Site/issues">https://github.com/adriechang/VNCRemote-Site/issues</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
