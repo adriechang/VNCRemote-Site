@@ -24,11 +24,11 @@
         <!-- 繁體中文 -->
         <div id="zh">
             <h1>VNC Remote Helper 安裝教學</h1>
-            <div class="meta">適用於 macOS | 版本 1.0</div>
+            <div class="meta">適用於 macOS | 版本 2.0</div>
 
             <div class="highlight">
                 <strong>什麼是 Helper？</strong><br>
-                VNC Remote Helper 是一個選用的 macOS 輔助工具。安裝後，您可以在遠端桌面中使用<strong>注音、拼音、日文</strong>等非英文輸入法。不安裝 Helper 也能正常使用 VNC Remote，只是無法使用輸入法。
+                VNC Remote Helper 是一個選用的 macOS Menu Bar 輔助工具。安裝後，您可以在遠端桌面中使用<strong>注音、拼音、日文</strong>等非英文輸入法。不安裝 Helper 也能正常使用 VNC Remote，只是無法使用輸入法。
             </div>
 
             <h2>為什麼需要 Helper？</h2>
@@ -52,20 +52,21 @@ cd VNCRemote-Site</code></pre>
             </div>
 
             <div class="step">
-                <p><span class="step-number">2</span> <strong>編譯 Helper</strong></p>
-                <pre><code>cd HIDInjectorHelper
-make build</code></pre>
-                <p>編譯成功後會產生 <code>HIDInjectorHelper</code> 執行檔。</p>
+                <p><span class="step-number">2</span> <strong>編譯並安裝</strong></p>
+                <pre><code>cd VNCRemoteHelper
+make -f Makefile.menubar install</code></pre>
+                <p>這會編譯並安裝 <code>VNCRemoteHelper.app</code> 到「應用程式」資料夾。</p>
             </div>
 
             <div class="step">
-                <p><span class="step-number">3</span> <strong>執行 Helper</strong></p>
-                <pre><code>./HIDInjectorHelper</code></pre>
-                <p>成功啟動後會看到類似訊息：</p>
-                <pre><code>🚀 Starting HID Injector Helper v1.0
-✅ HID Injector Server listening on port 50001
-🔑 PIN: 123456</code></pre>
-                <p>請記下顯示的 <strong>PIN 碼</strong>，iPad 連線時需要輸入。</p>
+                <p><span class="step-number">3</span> <strong>啟動 Helper</strong></p>
+                <p>從「應用程式」資料夾或 Spotlight 搜尋開啟 <strong>VNCRemoteHelper</strong>。</p>
+                <p>啟動後，螢幕右上角的 Menu Bar 會出現鍵盤圖示（⌨）。點擊圖示即可看到：</p>
+                <ul>
+                    <li>運行狀態</li>
+                    <li><strong>PIN 碼</strong>（iPad 連線時需要輸入）</li>
+                    <li>連線中的裝置</li>
+                </ul>
             </div>
 
             <div class="step">
@@ -73,7 +74,7 @@ make build</code></pre>
                 <p>macOS 會提示需要「輔助使用」權限：</p>
                 <ol>
                     <li>打開「系統設定」→「隱私權與安全性」→「輔助使用」</li>
-                    <li>找到 <code>HIDInjectorHelper</code>（或 <code>Terminal</code>）</li>
+                    <li>找到 <code>VNCRemoteHelper</code></li>
                     <li>啟用權限</li>
                     <li><strong>重新啟動 Helper</strong>（授權後需要重啟才會生效）</li>
                 </ol>
@@ -84,8 +85,8 @@ make build</code></pre>
             <h3>在 Mac 上</h3>
             <ol>
                 <li>確保「系統設定」→「共享」→「螢幕共享」已啟用</li>
-                <li>執行 Helper：<code>./HIDInjectorHelper</code></li>
-                <li>確認看到「listening on port 50001」</li>
+                <li>確認 Menu Bar 有鍵盤圖示（⌨），表示 Helper 正在執行</li>
+                <li>點擊圖示確認 PIN 碼</li>
             </ol>
 
             <h3>在 iPad 上</h3>
@@ -102,6 +103,13 @@ make build</code></pre>
                 <li>按 <code>Control + Space</code> 切換到注音（或其他輸入法）</li>
                 <li>用 iPad 外接鍵盤輸入，例如：ㄉㄚˋ</li>
                 <li>應該會看到選字候選清單</li>
+            </ol>
+
+            <h2>開機自動啟動（建議）</h2>
+            <ol>
+                <li>打開「系統設定」→「一般」→「登入項目」</li>
+                <li>點擊「+」加入 VNCRemoteHelper.app</li>
+                <li>之後開機就會自動啟動，常駐在 Menu Bar</li>
             </ol>
 
             <h2>常見問題</h2>
@@ -141,11 +149,11 @@ make build</code></pre>
         <!-- English -->
         <div id="en">
             <h1>VNC Remote Helper Setup Guide</h1>
-            <div class="meta">For macOS | Version 1.0</div>
+            <div class="meta">For macOS | Version 2.0</div>
 
             <div class="highlight">
                 <strong>What is Helper?</strong><br>
-                VNC Remote Helper is an optional macOS companion tool. Once installed, you can use <strong>Chinese (Zhuyin/Pinyin), Japanese, Korean</strong>, and other non-English input methods on the remote desktop. VNC Remote works fine without Helper — you just won't be able to use input methods.
+                VNC Remote Helper is an optional macOS Menu Bar companion tool. Once installed, you can use <strong>Chinese (Zhuyin/Pinyin), Japanese, Korean</strong>, and other non-English input methods on the remote desktop. VNC Remote works fine without Helper — you just won't be able to use input methods.
             </div>
 
             <h2>Why Do I Need Helper?</h2>
@@ -169,20 +177,21 @@ cd VNCRemote-Site</code></pre>
             </div>
 
             <div class="step">
-                <p><span class="step-number">2</span> <strong>Build Helper</strong></p>
-                <pre><code>cd HIDInjectorHelper
-make build</code></pre>
-                <p>On success, the <code>HIDInjectorHelper</code> executable will be created.</p>
+                <p><span class="step-number">2</span> <strong>Build and Install</strong></p>
+                <pre><code>cd VNCRemoteHelper
+make -f Makefile.menubar install</code></pre>
+                <p>This will compile and install <code>VNCRemoteHelper.app</code> to your Applications folder.</p>
             </div>
 
             <div class="step">
-                <p><span class="step-number">3</span> <strong>Run Helper</strong></p>
-                <pre><code>./HIDInjectorHelper</code></pre>
-                <p>On successful launch, you'll see:</p>
-                <pre><code>🚀 Starting HID Injector Helper v1.0
-✅ HID Injector Server listening on port 50001
-🔑 PIN: 123456</code></pre>
-                <p>Note the <strong>PIN code</strong> displayed — you'll need it when connecting from iPad.</p>
+                <p><span class="step-number">3</span> <strong>Launch Helper</strong></p>
+                <p>Open <strong>VNCRemoteHelper</strong> from the Applications folder or via Spotlight.</p>
+                <p>Once launched, a keyboard icon (⌨) will appear in the Menu Bar (top-right). Click the icon to see:</p>
+                <ul>
+                    <li>Running status</li>
+                    <li><strong>PIN code</strong> (needed when connecting from iPad)</li>
+                    <li>Connected devices</li>
+                </ul>
             </div>
 
             <div class="step">
@@ -190,7 +199,7 @@ make build</code></pre>
                 <p>macOS will prompt for Accessibility access:</p>
                 <ol>
                     <li>Open System Settings → Privacy & Security → Accessibility</li>
-                    <li>Find <code>HIDInjectorHelper</code> (or <code>Terminal</code>)</li>
+                    <li>Find <code>VNCRemoteHelper</code></li>
                     <li>Enable the toggle</li>
                     <li><strong>Restart Helper</strong> (required after granting permission)</li>
                 </ol>
@@ -201,8 +210,8 @@ make build</code></pre>
             <h3>On Your Mac</h3>
             <ol>
                 <li>Ensure Screen Sharing is enabled (System Settings → Sharing)</li>
-                <li>Run Helper: <code>./HIDInjectorHelper</code></li>
-                <li>Confirm you see "listening on port 50001"</li>
+                <li>Confirm the keyboard icon (⌨) is visible in the Menu Bar</li>
+                <li>Click the icon to check the PIN code</li>
             </ol>
 
             <h3>On Your iPad</h3>
@@ -219,6 +228,13 @@ make build</code></pre>
                 <li>Press <code>Control + Space</code> to switch input methods</li>
                 <li>Type using your iPad external keyboard</li>
                 <li>You should see the input method candidate list appear</li>
+            </ol>
+
+            <h2>Auto-Start on Login (Recommended)</h2>
+            <ol>
+                <li>Open System Settings → General → Login Items</li>
+                <li>Click "+" and add VNCRemoteHelper.app</li>
+                <li>Helper will automatically start and stay in the Menu Bar on every login</li>
             </ol>
 
             <h2>Troubleshooting</h2>
