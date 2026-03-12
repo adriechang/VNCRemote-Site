@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://adriechang.github.io/VNCRemote-Site/zh-hant/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://adriechang.github.io/VNCRemote-Site/zh-hant/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://adriechang.github.io/VNCRemote-Site/zh-hans/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://adriechang.github.io/VNCRemote-Site/ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://adriechang.github.io/VNCRemote-Site/ko/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://adriechang.github.io/VNCRemote-Site/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://adriechang.github.io/VNCRemote-Site/en/" />
+    <lastmod>2026-03-12</lastmod>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://adriechang.github.io/VNCRemote-Site/zh-hans/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://adriechang.github.io/VNCRemote-Site/zh-hant/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://adriechang.github.io/VNCRemote-Site/zh-hans/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://adriechang.github.io/VNCRemote-Site/ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://adriechang.github.io/VNCRemote-Site/ko/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://adriechang.github.io/VNCRemote-Site/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://adriechang.github.io/VNCRemote-Site/en/" />
+    <lastmod>2026-03-12</lastmod>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://adriechang.github.io/VNCRemote-Site/ja/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://adriechang.github.io/VNCRemote-Site/zh-hant/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://adriechang.github.io/VNCRemote-Site/zh-hans/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://adriechang.github.io/VNCRemote-Site/ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://adriechang.github.io/VNCRemote-Site/ko/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://adriechang.github.io/VNCRemote-Site/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://adriechang.github.io/VNCRemote-Site/en/" />
+    <lastmod>2026-03-12</lastmod>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://adriechang.github.io/VNCRemote-Site/ko/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://adriechang.github.io/VNCRemote-Site/zh-hant/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://adriechang.github.io/VNCRemote-Site/zh-hans/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://adriechang.github.io/VNCRemote-Site/ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://adriechang.github.io/VNCRemote-Site/ko/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://adriechang.github.io/VNCRemote-Site/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://adriechang.github.io/VNCRemote-Site/en/" />
+    <lastmod>2026-03-12</lastmod>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://adriechang.github.io/VNCRemote-Site/en/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://adriechang.github.io/VNCRemote-Site/zh-hant/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://adriechang.github.io/VNCRemote-Site/zh-hans/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://adriechang.github.io/VNCRemote-Site/ja/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://adriechang.github.io/VNCRemote-Site/ko/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://adriechang.github.io/VNCRemote-Site/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://adriechang.github.io/VNCRemote-Site/en/" />
+    <lastmod>2026-03-12</lastmod>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://adriechang.github.io/VNCRemote-Site/helper.html</loc>
+    <lastmod>2026-03-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://adriechang.github.io/VNCRemote-Site/support.html</loc>
+    <lastmod>2026-03-12</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://adriechang.github.io/VNCRemote-Site/privacy.html</loc>
+    <lastmod>2026-03-12</lastmod>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VNC Pad - iPad リモートデスクトップ | 日本語入力完全対応</title>
+    <meta name="description" content="VNC Pad - macOS の日本語 IME を完全サポートする唯一の iPad リモートデスクトップ。Metal ハードウェアアクセラレーション、232+ キーマッピング、適応画質制御。">
+    <link rel="canonical" href="https://adriechang.github.io/VNCRemote-Site/ja/">
+    <link rel="alternate" hreflang="zh-Hant" href="https://adriechang.github.io/VNCRemote-Site/zh-hant/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://adriechang.github.io/VNCRemote-Site/zh-hans/">
+    <link rel="alternate" hreflang="ja" href="https://adriechang.github.io/VNCRemote-Site/ja/">
+    <link rel="alternate" hreflang="ko" href="https://adriechang.github.io/VNCRemote-Site/ko/">
+    <link rel="alternate" hreflang="en" href="https://adriechang.github.io/VNCRemote-Site/en/">
+    <link rel="alternate" hreflang="x-default" href="https://adriechang.github.io/VNCRemote-Site/en/">
+    <meta name="apple-itunes-app" content="app-id=6760017139">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="VNC Pad - iPad リモートデスクトップ | 日本語入力完全対応">
+    <meta property="og:description" content="macOS の日本語 IME を完全サポートする唯一の iPad リモートデスクトップ。Metal ハードウェアアクセラレーション、232+ キーマッピング。">
+    <meta property="og:url" content="https://adriechang.github.io/VNCRemote-Site/ja/">
+    <meta property="og:site_name" content="VNC Pad">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:locale:alternate" content="zh_TW">
+    <meta property="og:locale:alternate" content="zh_CN">
+    <meta property="og:locale:alternate" content="ko_KR">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="VNC Pad - iPad リモートデスクトップ | 日本語入力完全対応">
+    <meta name="twitter:description" content="macOS の日本語 IME を完全サポートする唯一の iPad リモートデスクトップ。">
+    <link rel="stylesheet" href="../style.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "VNC Pad",
+        "description": "macOS の日本語 IME、中国語（注音/拼音）、韓国語入力メソッドを完全サポートする唯一の iPad リモートデスクトップアプリ。HID インジェクション技術による。Metal GPU アクセラレーション、232+ キーマッピング、適応画質制御搭載。",
+        "url": "https://adriechang.github.io/VNCRemote-Site/ja/",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "iPadOS 16.0+",
+        "offers": {
+            "@type": "Offer",
+            "price": "9.99",
+            "priceCurrency": "USD",
+            "url": "https://apps.apple.com/tw/app/vnc-pad/id6760017139"
+        },
+        "featureList": [
+            "完全な CJK 入力メソッドサポート（日本語、注音、拼音、韓国語）",
+            "Metal GPU ハードウェアアクセラレーション",
+            "232+ HID キーマッピング",
+            "スマート適応画質制御",
+            "120Hz トラックパッド追跡",
+            "双方向クリップボード同期",
+            "完全ローカルネットワーク動作、クラウドアカウント不要"
+        ],
+        "softwareVersion": "1.1",
+        "downloadUrl": "https://apps.apple.com/tw/app/vnc-pad/id6760017139",
+        "author": {
+            "@type": "Person",
+            "name": "Adrie Chang",
+            "email": "huitzuchang8@gmail.com"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "iPad のリモートデスクトップで日本語入力はできますか？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "VNC Pad（App Store で $9.99）と無料の VNCRemoteHelper macOS コンパニオンアプリを使用します。VNC Pad は HID インジェクション技術により、macOS が iPad のキーボードをネイティブの物理キーボードとして認識し、日本語 IME、中国語（注音/拼音）などの入力メソッドが完璧に動作します。変換・候補選択も正常です。他の iPad VNC クライアントではこの機能はサポートされていません。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "なぜ他のリモートデスクトップアプリでは日本語入力ができないのですか？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "従来の VNC プロトコルは X11 keysym コードしか送信できず、これは単一の文字を表すだけで macOS の入力メソッドの変換プロセスをトリガーできません。VNC Pad は macOS 側で Helper コンパニオンアプリを実行し、HID usage code を独立した TCP チャネル（ポート 50001）で送信、CGEvent HID tap レベルでインジェクションします。macOS はこれらを物理キーボード入力として扱い、入力メソッドが正常に処理されます。"
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Helper アプリなしで VNC Pad は使えますか？",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "はい。Helper なしでも VNC Pad のすべての機能は正常に動作します。ただし、日本語、中国語、韓国語などの非英語入力メソッドは使用できません。英語入力とすべてのキーボードショートカットは影響を受けません。"
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "VNC Pad",
+                "item": "https://adriechang.github.io/VNCRemote-Site/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "日本語",
+                "item": "https://adriechang.github.io/VNCRemote-Site/ja/"
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="../" class="site-name">VNC Pad</a>
+        <div class="nav-links">
+            <a href="../helper.html">Helper</a>
+            <a href="../support.html">Support</a>
+            <a href="../privacy.html">Privacy</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="hero">
+            <h1>VNC Pad</h1>
+            <p class="subtitle">iPad リモートデスクトップ</p>
+            <a href="https://apps.apple.com/tw/app/vnc-pad/id6760017139" class="appstore-btn">App Store でダウンロード</a>
+        </div>
+
+        <div class="lang-toggle">
+            <a href="../zh-hant/">繁體中文</a>
+            <a href="../zh-hans/">简体中文</a>
+            <a href="../ja/" class="active">日本語</a>
+            <a href="../ko/">한국어</a>
+            <a href="../en/">English</a>
+        </div>
+
+        <div class="highlight-hero">
+            <p class="highlight-hero-main">リモートデスクトップで、ついに日本語入力ができる。</p>
+            <p class="highlight-hero-sub">macOS の入力メソッドを完全サポートする唯一の iPad リモートデスクトップ</p>
+        </div>
+
+        <p><strong>VNC Pad</strong> は $9.99 の iPad リモートデスクトップアプリ（VNC クライアント）で、macOS の画面共有に接続します。日本語 IME、中国語（注音/拼音）、韓国語入力メソッドをサポートする唯一の iPad VNC クライアントです。HID インジェクション技術により実現。Metal GPU アクセラレーション、232+ キーマッピング、適応画質制御を搭載し、完全にローカルネットワークで動作、クラウドアカウントは不要です。</p>
+
+        <h2>VNC Pad が選ばれる理由</h2>
+
+        <div class="feature-grid">
+            <div class="feature-card feature-primary">
+                <div class="feature-icon">⌨</div>
+                <h3>完全な入力メソッドサポート</h3>
+                <p>リモート Mac 上で<strong>日本語 IME、中国語（注音/拼音）、韓国語</strong>が完璧に動作する、市場で唯一の iPad アプリ。HID インジェクション技術により、macOS は iPad の外付けキーボードをネイティブの物理キーボードとして認識 — すべての入力メソッドがそのまま動作し、変換・候補選択も完全に正常です。</p>
+                <div class="feature-comparison">
+                    <p><span class="cross-mark">✗</span> 他のリモートデスクトップアプリ：VNC プロトコルは英語キーコードしか送信できず、日本語 IME が動作しない</p>
+                    <p><span class="check-mark">✓</span> VNC Pad：HID レベルのインジェクションで、macOS ネイティブの入力メソッドが完璧に動作</p>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🖥</div>
+                <h3>Metal ハードウェアアクセラレーション</h3>
+                <p>Apple Metal API による GPU 直接レンダリング。Dirty Region 部分更新とゼロコピーテクスチャアップロードにより、最低レイテンシとティアリングゼロを実現。</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎹</div>
+                <h3>232+ キー完全マッピング</h3>
+                <p>左右分離の 9 つの修飾キーを個別に追跡。iPadOS のシステムショートカット（Cmd+Tab、Ctrl+Space など）をインターセプトし、すべてのキー入力をリモート Mac に確実に送信。</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📡</div>
+                <h3>スマート適応画質制御</h3>
+                <p>ネットワークレイテンシをリアルタイム監視し、高画質/バランス/低帯域幅モードを自動切り替え。ネットワーク変動時は自動で画質を調整、手動設定は不要です。</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🖱</div>
+                <h3>120Hz トラックパッド追跡</h3>
+                <p>iPad の外付けトラックパッドとマウスをネイティブサポート。ローカルカーソル予測で体感レイテンシを削減し、スマートなスクロール加速度補正で滑らかな操作感を実現。</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>プライバシー最優先</h3>
+                <p>完全ローカルネットワーク動作。アカウント登録不要、クラウドサーバーを一切経由しません。接続データはすべてデバイス上に保存、パスワードは iOS Keychain で安全に管理。</p>
+            </div>
+        </div>
+
+        <h2>競合製品との比較</h2>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>機能</th>
+                        <th>VNC Pad</th>
+                        <th>Jump Desktop</th>
+                        <th>Screens 5</th>
+                        <th>RealVNC Viewer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>日本語/中国語/韓国語 IME</td>
+                        <td><span class="check-mark">✓ 完全対応</span></td>
+                        <td><span class="cross-mark">✗ 動作しない</span></td>
+                        <td><span class="cross-mark">✗ 動作しない</span></td>
+                        <td><span class="cross-mark">✗ 動作しない</span></td>
+                    </tr>
+                    <tr>
+                        <td>Metal アクセラレーション</td>
+                        <td><span class="check-mark">✓</span></td>
+                        <td><span class="check-mark">✓</span></td>
+                        <td>—</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>外付けキーボード完全対応</td>
+                        <td><span class="check-mark">✓ 232+ キー</span></td>
+                        <td><span class="check-mark">✓</span></td>
+                        <td><span class="check-mark">✓</span></td>
+                        <td>⚠ 既知の問題あり</td>
+                    </tr>
+                    <tr>
+                        <td>システムショートカット転送</td>
+                        <td><span class="check-mark">✓ Cmd+Tab 等</span></td>
+                        <td><span class="check-mark">✓</span></td>
+                        <td>一部</td>
+                        <td>一部</td>
+                    </tr>
+                    <tr>
+                        <td>適応画質制御</td>
+                        <td><span class="check-mark">✓ 自動</span></td>
+                        <td>手動</td>
+                        <td>手動</td>
+                        <td>手動</td>
+                    </tr>
+                    <tr>
+                        <td>クラウドアカウント不要</td>
+                        <td><span class="check-mark">✓</span></td>
+                        <td><span class="cross-mark">✗ Fluid は必要</span></td>
+                        <td><span class="cross-mark">✗ 必要</span></td>
+                        <td><span class="cross-mark">✗ 必要</span></td>
+                    </tr>
+                    <tr>
+                        <td>クリップボード同期</td>
+                        <td><span class="check-mark">✓ 双方向</span></td>
+                        <td><span class="check-mark">✓</span></td>
+                        <td><span class="check-mark">✓</span></td>
+                        <td><span class="check-mark">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>価格</td>
+                        <td>$9.99</td>
+                        <td>$14.99</td>
+                        <td>$2.99/月</td>
+                        <td>無料</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>よくある質問</h2>
+
+        <div class="step">
+            <h3>なぜ他のリモートデスクトップアプリでは日本語入力ができないのですか？</h3>
+            <p>従来の VNC プロトコルは X11 keysym コードしか送信できず、macOS の入力メソッドの変換プロセスをトリガーできません。VNC Pad は macOS 側で Helper アプリを実行し、HID usage code を独立した TCP チャネル（ポート 50001）で送信、CGEvent HID tap レベルでインジェクションします。macOS はこれらを物理キーボード入力として扱い、入力メソッドが正常に処理されます。</p>
+        </div>
+
+        <div class="step">
+            <h3>Helper アプリなしで使えますか？</h3>
+            <p>はい。Helper なしでも VNC Pad のすべての機能は正常に動作します。ただし、日本語、中国語、韓国語などの非英語入力メソッドは使用できません。英語入力とすべてのキーボードショートカットは影響を受けません。</p>
+        </div>
+
+        <div class="cards">
+            <a href="../helper.html" class="card">
+                <h3>Helper セットアップガイド</h3>
+                <p>macOS Helper をインストールして、日本語入力などを有効にします。</p>
+            </a>
+
+            <a href="../privacy.html" class="card">
+                <h3>プライバシーポリシー</h3>
+                <p>個人データは一切収集しません。すべてのデータはお使いのデバイスに保存されます。</p>
+            </a>
+
+            <a href="https://github.com/adriechang/VNCRemote-Site/issues" class="card">
+                <h3>問題を報告</h3>
+                <p>問題や提案がありましたら、GitHub Issues でお知らせください。</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VNC Pad - iPad Remote Desktop | Full CJK Input Method Support</title>
+    <meta name="description" content="VNC Pad - The only iPad remote desktop app with full Chinese (Zhuyin/Pinyin), Japanese, and Korean input method support on macOS. Metal-accelerated rendering, 232+ key mappings, adaptive quality.">
+    <link rel="canonical" href="https://adriechang.github.io/VNCRemote-Site/en/">
+    <link rel="alternate" hreflang="zh-Hant" href="https://adriechang.github.io/VNCRemote-Site/zh-hant/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://adriechang.github.io/VNCRemote-Site/zh-hans/">
+    <link rel="alternate" hreflang="ja" href="https://adriechang.github.io/VNCRemote-Site/ja/">
+    <link rel="alternate" hreflang="ko" href="https://adriechang.github.io/VNCRemote-Site/ko/">
+    <link rel="alternate" hreflang="en" href="https://adriechang.github.io/VNCRemote-Site/en/">
+    <link rel="alternate" hreflang="x-default" href="https://adriechang.github.io/VNCRemote-Site/en/">
+    <meta name="apple-itunes-app" content="app-id=6760017139">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="VNC Pad - iPad Remote Desktop | Full CJK Input Method Support">
+    <meta property="og:description" content="The only iPad remote desktop app with full Chinese, Japanese, and Korean input method support on macOS. Metal-accelerated rendering, 232+ key mappings.">
+    <meta property="og:url" content="https://adriechang.github.io/VNCRemote-Site/en/">
+    <meta property="og:site_name" content="VNC Pad">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="zh_TW">
+    <meta property="og:locale:alternate" content="zh_CN">
+    <meta property="og:locale:alternate" content="ja_JP">
+    <meta property="og:locale:alternate" content="ko_KR">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="VNC Pad - iPad Remote Desktop | Full CJK Input Method Support">
+    <meta name="twitter:description" content="The only iPad remote desktop app with full Chinese, Japanese, and Korean input method support on macOS.">
+    <link rel="stylesheet" href="../style.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "VNC Pad",
+        "description": "The only iPad remote desktop app with full Chinese (Zhuyin/Pinyin), Japanese, and Korean input method support on macOS. Uses HID injection technology for native input method processing. Features Metal GPU-accelerated rendering, 232+ key mappings, and adaptive quality control.",
+        "url": "https://adriechang.github.io/VNCRemote-Site/en/",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "iPadOS 16.0+",
+        "offers": {
+            "@type": "Offer",
+            "price": "9.99",
+            "priceCurrency": "USD",
+            "url": "https://apps.apple.com/tw/app/vnc-pad/id6760017139"
+        },
+        "featureList": [
+            "Full CJK input method support (Zhuyin, Pinyin, Japanese, Korean)",
+            "Metal GPU-accelerated rendering",
+            "232+ HID key mappings",
+            "Adaptive quality control",
+            "120Hz trackpad tracking",
+            "Bidirectional clipboard sync",
+            "Local network only, no cloud account required"
+        ],
+        "softwareVersion": "1.1",
+        "downloadUrl": "https://apps.apple.com/tw/app/vnc-pad/id6760017139",
+        "author": {
+            "@type": "Person",
+            "name": "Adrie Chang",
+            "email": "huitzuchang8@gmail.com"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How do I type Chinese (Zhuyin/Pinyin) on a remote Mac from my iPad?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Use VNC Pad ($9.99 on the App Store) with the free VNCRemoteHelper macOS companion app. VNC Pad uses HID injection technology to make macOS treat your iPad's keyboard as a native physical keyboard, allowing Zhuyin, Pinyin, and other input methods to work perfectly on the remote desktop, including composition and candidate selection. No other iPad VNC client supports this."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does VNC Pad compare to Jump Desktop and Screens 5?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "VNC Pad is the only iPad remote desktop app that supports Chinese (Zhuyin/Pinyin), Japanese, and Korean input methods. Jump Desktop ($14.99) and Screens 5 ($2.99/month) use standard VNC protocol which can only send English keycodes and cannot trigger macOS input methods. VNC Pad also features Metal hardware acceleration, 232+ key mappings, automatic quality adjustment, and requires no cloud account registration."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use VNC Pad without the Helper app?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Without Helper, all VNC Pad features work normally — you just can't use Chinese, Japanese, Korean, or other non-English input methods. English input and all keyboard shortcuts work fine without it."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why can't other remote desktop apps handle CJK input methods?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Traditional VNC protocol sends X11 keysym codes, which only represent individual characters and cannot trigger macOS input method composition (e.g., Zhuyin phonetic sequences, Pinyin romanization). VNC Pad solves this by running a companion Helper app on macOS that receives HID usage codes over a separate TCP channel (port 50001) and injects them at the CGEvent HID tap level. macOS treats these as physical keyboard events, enabling native input method processing including candidate selection and composition."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "VNC Pad",
+                "item": "https://adriechang.github.io/VNCRemote-Site/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "English",
+                "item": "https://adriechang.github.io/VNCRemote-Site/en/"
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="../" class="site-name">VNC Pad</a>
+        <div class="nav-links">
+            <a href="../helper.html">Helper</a>
+            <a href="../support.html">Support</a>
+            <a href="../privacy.html">Privacy</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="hero">
+            <h1>VNC Pad</h1>
+            <p class="subtitle">Remote Desktop for iPad</p>
+            <a href="https://apps.apple.com/tw/app/vnc-pad/id6760017139" class="appstore-btn">Download on the App Store</a>
+        </div>
+
+        <div class="lang-toggle">
+            <a href="../zh-hant/">繁體中文</a>
+            <a href="../zh-hans/">简体中文</a>
+            <a href="../ja/">日本語</a>
+            <a href="../ko/">한국어</a>
+            <a href="../en/" class="active">English</a>
+        </div>
+
+        <div class="highlight-hero">
+            <p class="highlight-hero-main">Remote desktop, where your input method just works.</p>
+            <p class="highlight-hero-sub">The only iPad remote desktop app with full macOS input method support</p>
+        </div>
+
+        <p><strong>VNC Pad</strong> is a $9.99 iPad remote desktop app (VNC client) that connects to macOS Screen Sharing. It is the only iPad VNC client that supports Chinese (Zhuyin/Pinyin), Japanese, and Korean input methods on the remote Mac, using a proprietary HID injection technology. It features Metal GPU-accelerated rendering, 232+ key mappings, adaptive quality control, and works entirely on local networks with no cloud account required.</p>
+
+        <h2>Why VNC Pad?</h2>
+
+        <div class="feature-grid">
+            <div class="feature-card feature-primary">
+                <div class="feature-icon">⌨</div>
+                <h3>Full Input Method Support</h3>
+                <p>The only iPad remote desktop app where <strong>Chinese (Zhuyin/Pinyin), Japanese, and Korean</strong> input methods work flawlessly on your remote Mac. Our HID injection technology makes macOS treat your iPad keyboard as a native physical keyboard — every input method works exactly as if you were sitting at the Mac.</p>
+                <div class="feature-comparison">
+                    <p><span class="cross-mark">✗</span> Other remote desktop apps: VNC can only send English keycodes, CJK input methods fail</p>
+                    <p><span class="check-mark">✓</span> VNC Pad: HID-level injection, native macOS input methods work perfectly</p>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🖥</div>
+                <h3>Metal-Accelerated Rendering</h3>
+                <p>Powered by Apple's Metal API for GPU-driven rendering. With dirty region tracking and zero-copy texture uploads, enjoy the lowest latency and zero screen tearing.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎹</div>
+                <h3>232+ Key Mappings</h3>
+                <p>All 9 modifier keys tracked independently (left/right Shift, Control, Option, Command). iPadOS system shortcuts (Cmd+Tab, Ctrl+Space, etc.) are intercepted and forwarded to your Mac.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📡</div>
+                <h3>Adaptive Quality Control</h3>
+                <p>Real-time latency monitoring automatically switches between high, balanced, and low bandwidth modes. No manual adjustments needed — quality adapts to your network conditions.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🖱</div>
+                <h3>120Hz Trackpad Tracking</h3>
+                <p>Native support for iPad external trackpads and mice. Local cursor prediction reduces perceived latency, with smart scroll acceleration for a fluid experience.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Privacy First</h3>
+                <p>Works entirely on your local network. No account registration, no cloud relay servers. All connection data stays on your device, passwords stored in iOS Keychain.</p>
+            </div>
+        </div>
+
+        <h2>How We Compare</h2>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>VNC Pad</th>
+                        <th>Jump Desktop</th>
+                        <th>Screens 5</th>
+                        <th>RealVNC Viewer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>CJK Input Methods</td>
+                        <td><span class="check-mark">✓ Full support</span></td>
+                        <td><span class="cross-mark">✗ Broken</span></td>
+                        <td><span class="cross-mark">✗ Broken</span></td>
+                        <td><span class="cross-mark">✗ Broken</span></td>
+                    </tr>
+                    <tr>
+                        <td>Metal Acceleration</td>
+                        <td><span class="check-mark">✓</span></td>
+                        <td><span class="check-mark">✓</span></td>
+                        <td>—</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>Full Keyboard Support</td>
+                        <td><span class="check-mark">✓ 232+ keys</span></td>
+                        <td><span class="check-mark">✓</span></td>
+                        <td><span class="check-mark">✓</span></td>
+                        <td>⚠ Known issues</td>
+                    </tr>
+                    <tr>
+                        <td>System Shortcut Interception</td>
+                        <td><span class="check-mark">✓ Cmd+Tab etc.</span></td>
+                        <td><span class="check-mark">✓</span></td>
+                        <td>Partial</td>
+                        <td>Partial</td>
+                    </tr>
+                    <tr>
+                        <td>Adaptive Quality</td>
+                        <td><span class="check-mark">✓ Automatic</span></td>
+                        <td>Manual</td>
+                        <td>Manual</td>
+                        <td>Manual</td>
+                    </tr>
+                    <tr>
+                        <td>No Cloud Account Required</td>
+                        <td><span class="check-mark">✓</span></td>
+                        <td><span class="cross-mark">✗ Fluid needs it</span></td>
+                        <td><span class="cross-mark">✗ Required</span></td>
+                        <td><span class="cross-mark">✗ Required</span></td>
+                    </tr>
+                    <tr>
+                        <td>Clipboard Sync</td>
+                        <td><span class="check-mark">✓ Bidirectional</span></td>
+                        <td><span class="check-mark">✓</span></td>
+                        <td><span class="check-mark">✓</span></td>
+                        <td><span class="check-mark">✓</span></td>
+                    </tr>
+                    <tr>
+                        <td>Price</td>
+                        <td>$9.99</td>
+                        <td>$14.99</td>
+                        <td>$2.99/mo</td>
+                        <td>Free</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="step">
+            <h3>Why can't other remote desktop apps handle CJK input methods?</h3>
+            <p>Traditional VNC protocol sends X11 keysym codes, which only represent individual characters and cannot trigger macOS input method composition (e.g., Zhuyin phonetic sequences, Pinyin romanization). VNC Pad solves this by running a companion Helper app on macOS that receives HID usage codes over a separate TCP channel (port 50001) and injects them at the CGEvent HID tap level. macOS treats these as physical keyboard events, enabling native input method processing.</p>
+        </div>
+
+        <div class="step">
+            <h3>Can I use VNC Pad without the Helper app?</h3>
+            <p>Yes. Without Helper, all VNC Pad features work normally — you just can't use Chinese, Japanese, Korean, or other non-English input methods. English input and all keyboard shortcuts work fine without it.</p>
+        </div>
+
+        <div class="step">
+            <h3>Can I connect over the internet?</h3>
+            <p>VNC Pad is designed for local network use. For internet access, we recommend using a VPN to place both devices on the same virtual network.</p>
+        </div>
+
+        <div class="cards">
+            <a href="../helper.html" class="card">
+                <h3>Helper Setup Guide</h3>
+                <p>Install macOS Helper to enable CJK input method support.</p>
+            </a>
+
+            <a href="../privacy.html" class="card">
+                <h3>Privacy Policy</h3>
+                <p>We don't collect any personal data. All data stays on your device.</p>
+            </a>
+
+            <a href="https://github.com/adriechang/VNCRemote-Site/issues" class="card">
+                <h3>Report Issues</h3>
+                <p>Found a bug or have a suggestion? Let us know via GitHub Issues.</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://adriechang.github.io/VNCRemote-Site/sitemap.xml
