@@ -1,0 +1,33 @@
+name: Notify search engines
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'sitemap.xml'
+      - '**/*.html'
+  workflow_dispatch:
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Submit URLs to IndexNow (Bing, Yandex, Naver)
+        run: |
+          curl -fsSL -X POST https://api.indexnow.org/IndexNow \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d '{
+              "host": "adriechang.github.io",
+              "key": "7e3f9a2b4c6d8e1f5a7c9b2d4e6f8a1c",
+              "keyLocation": "https://adriechang.github.io/VNCRemote-Site/7e3f9a2b4c6d8e1f5a7c9b2d4e6f8a1c.txt",
+              "urlList": [
+                "https://adriechang.github.io/VNCRemote-Site/en/",
+                "https://adriechang.github.io/VNCRemote-Site/zh-hant/",
+                "https://adriechang.github.io/VNCRemote-Site/zh-hans/",
+                "https://adriechang.github.io/VNCRemote-Site/ja/",
+                "https://adriechang.github.io/VNCRemote-Site/ko/",
+                "https://adriechang.github.io/VNCRemote-Site/helper.html",
+                "https://adriechang.github.io/VNCRemote-Site/support.html",
+                "https://adriechang.github.io/VNCRemote-Site/privacy.html"
+              ]
+            }'

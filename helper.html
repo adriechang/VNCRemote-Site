@@ -13,9 +13,14 @@
     <meta property="og:url" content="https://adriechang.github.io/VNCRemote-Site/helper.html">
     <meta property="og:site_name" content="VNC Pad">
     <meta property="og:locale" content="zh_TW">
-    <meta name="twitter:card" content="summary">
+    <meta property="og:image" content="https://adriechang.github.io/VNCRemote-Site/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="VNC Pad Helper Setup Guide">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="VNC Pad Helper Setup Guide | Helper 安裝教學">
     <meta name="twitter:description" content="Install VNC Pad Helper on macOS to enable CJK input methods on your iPad remote desktop.">
+    <meta name="twitter:image" content="https://adriechang.github.io/VNCRemote-Site/og-image.png">
     <link rel="stylesheet" href="style.css">
     <script type="application/ld+json">
     {
@@ -38,8 +43,8 @@
             {
                 "@type": "HowToStep",
                 "name": "Download Helper",
-                "text": "Download VNCRemoteHelper-1.1.dmg from the official releases page. The app is notarized by Apple for safe installation.",
-                "url": "https://github.com/adriechang/VNCRemote-Site/releases/download/v1.1.0/VNCRemoteHelper-1.1.dmg"
+                "text": "Download VNCRemoteHelper-1.1.1.dmg from the official releases page. The app is notarized by Apple for safe installation.",
+                "url": "https://github.com/adriechang/VNCRemote-Site/releases/download/v1.1.1/VNCRemoteHelper-1.1.1.dmg"
             },
             {
                 "@type": "HowToStep",
@@ -54,7 +59,7 @@
             {
                 "@type": "HowToStep",
                 "name": "Grant Accessibility Permission",
-                "text": "Open System Settings > Privacy & Security > Accessibility. Find VNCRemoteHelper and enable the toggle. Restart Helper after granting permission."
+                "text": "Open System Settings > Privacy & Security > Accessibility. Find VNCRemoteHelper and enable the toggle. Restart Helper after granting permission. To use the optional H.264 screen stream, also grant Screen Recording permission when the Helper menu asks for it."
             }
         ]
     }
@@ -99,7 +104,7 @@
         <!-- 繁體中文 -->
         <div id="zh" lang="zh-Hant">
             <h1>VNC Pad Helper 安裝教學</h1>
-            <div class="meta">適用於 macOS | 版本 1.1</div>
+            <div class="meta">適用於 macOS | 版本 1.1.1（2026 年 10 月）</div>
 
             <div class="highlight">
                 <strong>什麼是 Helper？</strong><br>
@@ -112,6 +117,7 @@
             <ul>
                 <li><strong>VNC 通道</strong>（port 5900）：傳輸螢幕畫面</li>
                 <li><strong>Helper 通道</strong>（port 50001）：傳輸鍵盤、滑鼠事件與剪貼簿同步，讓輸入法可以辨識</li>
+                <li><strong>視訊通道</strong>（port 50002，選用）：H.264 硬體加速畫面串流，使用同一組 PIN 認證，需要「螢幕錄製」權限</li>
             </ul>
 
             <h2>系統需求</h2>
@@ -124,8 +130,8 @@
 
             <div class="step">
                 <p><span class="step-number">1</span> <strong>下載 Helper</strong></p>
-                <p><a href="https://github.com/adriechang/VNCRemote-Site/releases/download/v1.1.0/VNCRemoteHelper-1.1.dmg" style="display:inline-block; background:#007aff; color:white; padding:10px 24px; border-radius:8px; text-decoration:none; font-weight:600;">下載 VNCRemoteHelper-1.1.dmg</a></p>
-                <p style="color:#86868b; font-size:0.9em;">已通過 Apple Notarization 認證，可安心安裝。</p>
+                <p><a href="https://github.com/adriechang/VNCRemote-Site/releases/download/v1.1.1/VNCRemoteHelper-1.1.1.dmg" style="display:inline-block; background:#007aff; color:white; padding:10px 24px; border-radius:8px; text-decoration:none; font-weight:600;">下載 VNCRemoteHelper-1.1.1.dmg</a></p>
+                <p style="color:#86868b; font-size:0.9em;">已通過 Apple Notarization 認證，可安心安裝。舊版請至 <a href="https://github.com/adriechang/VNCRemote-Site/releases">Releases 頁面</a>。</p>
             </div>
 
             <div class="step">
@@ -153,6 +159,7 @@
                     <li>啟用權限</li>
                     <li><strong>重新啟動 Helper</strong>（授權後需要重啟才會生效）</li>
                 </ol>
+                <p>若要使用 H.264 畫面串流（更流暢的畫面），Helper 選單會另外提示授予「<strong>螢幕錄製</strong>」權限；不授予也不影響輸入法功能。</p>
             </div>
 
             <h2>使用方式</h2>
@@ -187,19 +194,42 @@
                 <li>之後開機就會自動啟動，常駐在 Menu Bar</li>
             </ol>
 
+            <h2>版本紀錄</h2>
+
+            <h3>1.1.1（2026 年 10 月）</h3>
+            <ul>
+                <li>按住 Backspace、方向鍵等會連續重複（搭配 VNC Pad 1.1.1；協定 v4，向下相容舊版 App）</li>
+                <li>iPad 斷線時自動釋放仍按住的鍵、修飾鍵與滑鼠鍵，不再卡住 Cmd 或 Shift</li>
+                <li>支援雙擊與三擊</li>
+                <li>iPad 睡眠或離開網路後約 15 秒內自動釋放連線名額</li>
+                <li>PIN 連續輸入錯誤 5 次會鎖定該裝置 60 秒並自動更換 PIN</li>
+                <li>剪貼簿同步會略過密碼管理器標記為機密的內容</li>
+                <li>畫面擷取改用主螢幕，與滑鼠座標一致</li>
+                <li>修正多個串流啟動時的競態問題</li>
+            </ul>
+
+            <h3>1.1.0</h3>
+            <ul>
+                <li>新增滑鼠 HID 注入、雙向剪貼簿同步、60fps H.264 畫面串流</li>
+            </ul>
+
             <h2>常見問題</h2>
 
             <h3>Helper 啟動失敗</h3>
-            <p>可能是 port 50001 被佔用。檢查方法：</p>
-            <pre><code>lsof -i :50001</code></pre>
+            <p>可能是 port 50001 或 50002 被佔用。檢查方法：</p>
+            <pre><code>lsof -i :50001 -i :50002</code></pre>
             <p>如果有其他程式佔用，先關閉該程式再重試。</p>
 
             <h3>iPad 無法連接 Helper</h3>
             <ul>
                 <li>確認 iPad 和 Mac 在同一個區域網路</li>
-                <li>檢查 macOS 防火牆是否擋住了 port 50001</li>
+                <li>檢查 macOS 防火牆是否擋住了 port 50001 與 50002</li>
                 <li>確認 PIN 碼輸入正確</li>
+                <li>連續輸入錯誤 5 次會被鎖定 60 秒，且 Helper 會自動更換 PIN；請點擊 Menu Bar 圖示查看新的 PIN 碼</li>
             </ul>
+
+            <h3>每次重新連線都要輸入 PIN？</h3>
+            <p>VNC Pad 1.1.1 起，同一次使用期間只需輸入一次；切換 App、Mac 睡眠或網路中斷後會自動以原本的 PIN 重新連接。若仍被重複詢問，請確認 iPad 上的 App 已更新。</p>
 
             <h3>連上了但輸入法不工作</h3>
             <ul>
@@ -224,7 +254,7 @@
         <!-- English -->
         <div id="en" lang="en">
             <h1>VNC Pad Helper Setup Guide</h1>
-            <div class="meta">For macOS | Version 1.1</div>
+            <div class="meta">For macOS | Version 1.1.1 (October 2026)</div>
 
             <div class="highlight">
                 <strong>What is Helper?</strong><br>
@@ -237,6 +267,7 @@
             <ul>
                 <li><strong>VNC Channel</strong> (port 5900): Transmits screen display</li>
                 <li><strong>Helper Channel</strong> (port 50001): Transmits keyboard, mouse events and clipboard sync for input method recognition</li>
+                <li><strong>Video Channel</strong> (port 50002, optional): Hardware-accelerated H.264 screen stream, authenticated with the same PIN; requires Screen Recording permission</li>
             </ul>
 
             <h2>System Requirements</h2>
@@ -249,8 +280,8 @@
 
             <div class="step">
                 <p><span class="step-number">1</span> <strong>Download Helper</strong></p>
-                <p><a href="https://github.com/adriechang/VNCRemote-Site/releases/download/v1.1.0/VNCRemoteHelper-1.1.dmg" style="display:inline-block; background:#007aff; color:white; padding:10px 24px; border-radius:8px; text-decoration:none; font-weight:600;">Download VNCRemoteHelper-1.1.dmg</a></p>
-                <p style="color:#86868b; font-size:0.9em;">Notarized by Apple for safe installation.</p>
+                <p><a href="https://github.com/adriechang/VNCRemote-Site/releases/download/v1.1.1/VNCRemoteHelper-1.1.1.dmg" style="display:inline-block; background:#007aff; color:white; padding:10px 24px; border-radius:8px; text-decoration:none; font-weight:600;">Download VNCRemoteHelper-1.1.1.dmg</a></p>
+                <p style="color:#86868b; font-size:0.9em;">Notarized by Apple for safe installation. Older versions are on the <a href="https://github.com/adriechang/VNCRemote-Site/releases">Releases page</a>.</p>
             </div>
 
             <div class="step">
@@ -278,6 +309,7 @@
                     <li>Enable the toggle</li>
                     <li><strong>Restart Helper</strong> (required after granting permission)</li>
                 </ol>
+                <p>To use the optional H.264 screen stream (smoother picture), the Helper menu will also ask for <strong>Screen Recording</strong> permission. Input methods work without it.</p>
             </div>
 
             <h2>Usage</h2>
@@ -312,19 +344,42 @@
                 <li>Helper will automatically start and stay in the Menu Bar on every login</li>
             </ol>
 
+            <h2>Release Notes</h2>
+
+            <h3>1.1.1 (October 2026)</h3>
+            <ul>
+                <li>Holding Backspace, arrow keys and other keys now repeats (with VNC Pad 1.1.1; protocol v4, backward compatible with older app versions)</li>
+                <li>Keys, modifiers and mouse buttons still held when the iPad disconnects are released automatically — no more stuck Cmd or Shift</li>
+                <li>Double- and triple-click support</li>
+                <li>Connection slots are freed within about 15 seconds after the iPad sleeps or leaves the network</li>
+                <li>Five consecutive wrong PIN attempts lock that device out for 60 seconds and rotate the PIN</li>
+                <li>Clipboard sync skips content marked as confidential by password managers</li>
+                <li>Screen capture now uses the main display, matching mouse coordinates</li>
+                <li>Fixed several race conditions during stream start-up</li>
+            </ul>
+
+            <h3>1.1.0</h3>
+            <ul>
+                <li>Added mouse HID injection, bidirectional clipboard sync and 60 fps H.264 screen streaming</li>
+            </ul>
+
             <h2>Troubleshooting</h2>
 
             <h3>Helper Fails to Start</h3>
-            <p>Port 50001 may be in use. Check with:</p>
-            <pre><code>lsof -i :50001</code></pre>
+            <p>Port 50001 or 50002 may be in use. Check with:</p>
+            <pre><code>lsof -i :50001 -i :50002</code></pre>
             <p>If another process is using the port, close it and try again.</p>
 
             <h3>iPad Can't Connect to Helper</h3>
             <ul>
                 <li>Ensure iPad and Mac are on the same local network</li>
-                <li>Check if macOS firewall is blocking port 50001</li>
+                <li>Check if macOS firewall is blocking ports 50001 and 50002</li>
                 <li>Verify the PIN code is entered correctly</li>
+                <li>After five wrong attempts the device is locked out for 60 seconds and the PIN changes; click the Menu Bar icon to see the new PIN</li>
             </ul>
+
+            <h3>Asked for the PIN on every reconnect?</h3>
+            <p>Since VNC Pad 1.1.1 the PIN is entered once per session; after switching apps, Mac sleep or a network drop the app reconnects with the same PIN automatically. If you are still asked repeatedly, make sure the iPad app is up to date.</p>
 
             <h3>Connected but Input Methods Don't Work</h3>
             <ul>

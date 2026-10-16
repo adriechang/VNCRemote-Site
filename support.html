@@ -13,9 +13,14 @@
     <meta property="og:url" content="https://adriechang.github.io/VNCRemote-Site/support.html">
     <meta property="og:site_name" content="VNC Pad">
     <meta property="og:locale" content="zh_TW">
-    <meta name="twitter:card" content="summary">
+    <meta property="og:image" content="https://adriechang.github.io/VNCRemote-Site/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="VNC Pad Support">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="VNC Pad - Support | 支援與協助">
     <meta name="twitter:description" content="VNC Pad FAQ, troubleshooting, and system requirements.">
+    <meta name="twitter:image" content="https://adriechang.github.io/VNCRemote-Site/og-image.png">
     <link rel="stylesheet" href="style.css">
     <script type="application/ld+json">
     {
@@ -60,6 +65,30 @@
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "VNC Pad is designed for local network use. For internet access, we recommend using a VPN to place both devices on the same virtual network."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "I changed my Mac's password and VNC Pad can't connect anymore?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Since version 1.1.1, VNC Pad detects a rejected password, removes the saved one and asks you to enter the new password right away. You can also long-press a saved connection and choose Forget Saved Password."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why does the Helper PIN stop working after several wrong attempts?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Helper 1.1.1 locks a device out for 60 seconds after five consecutive wrong PIN attempts and generates a new PIN. Click the Helper icon in the Mac menu bar to see the current PIN. During a session the PIN is only asked once; reconnects after app switching or Mac sleep reuse it automatically."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Held keys don't repeat or scrolling is very slow?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Update VNC Pad to 1.1.1 and VNC Pad Helper to 1.1.1. Key repeat for held keys, pixel-smooth trackpad scrolling and double-click in Helper mode were added in that release."
                 }
             }
         ]
@@ -143,12 +172,34 @@
                 <p>VNC Pad 設計為區域網路使用。如需透過網際網路連線，建議使用 VPN 將兩端設備置於同一虛擬網路中。</p>
             </div>
 
+            <div class="step">
+                <h3>Mac 改了密碼之後連不上？</h3>
+                <p>VNC Pad 1.1.1 起會偵測到密碼被拒絕，自動移除已儲存的舊密碼並立即要求輸入新密碼。也可以長按「已儲存」中的連線，選擇「忘記已儲存的密碼」。</p>
+            </div>
+
+            <div class="step">
+                <h3>Helper 的 PIN 碼輸入幾次後就連不上？</h3>
+                <p>Helper 1.1.1 在連續輸入錯誤 5 次後會鎖定該裝置 60 秒，並自動更換 PIN。請點擊 Mac Menu Bar 的 Helper 圖示查看目前的 PIN。同一次使用期間 PIN 只需輸入一次；切換 App 或 Mac 睡眠後會自動以原 PIN 重連。</p>
+            </div>
+
+            <div class="step">
+                <h3>按住鍵不會重複、捲動很慢？</h3>
+                <p>請將 VNC Pad 與 VNC Pad Helper 都更新到 1.1.1。按住鍵連續重複、像素級平滑捲動、Helper 模式下的雙擊都是在這個版本加入的。</p>
+            </div>
+
             <h2>系統需求</h2>
             <ul>
-                <li>iPadOS 16.0 或以上版本</li>
+                <li>iPadOS 17.0 或以上版本</li>
                 <li>目標 Mac 需啟用「螢幕共享」</li>
                 <li>兩台裝置需在同一區域網路</li>
                 <li>建議使用外接鍵盤以獲得最佳體驗</li>
+                <li>輸入法支援需另外安裝 <a href="helper.html">VNC Pad Helper</a>（macOS 13 或以上）</li>
+            </ul>
+
+            <h2>目前版本</h2>
+            <ul>
+                <li>VNC Pad（iPad）：1.1.1</li>
+                <li>VNC Pad Helper（Mac）：1.1.1，<a href="helper.html">下載與版本紀錄</a></li>
             </ul>
         </div>
 
@@ -193,12 +244,34 @@
                 <p>VNC Pad is designed for local network use. For internet access, we recommend using a VPN to place both devices on the same virtual network.</p>
             </div>
 
+            <div class="step">
+                <h3>I changed my Mac's password and VNC Pad can't connect anymore?</h3>
+                <p>Since version 1.1.1, VNC Pad detects a rejected password, removes the saved one and asks you for the new password right away. You can also long-press a saved connection and choose "Forget Saved Password".</p>
+            </div>
+
+            <div class="step">
+                <h3>The Helper PIN stops working after several wrong attempts?</h3>
+                <p>Helper 1.1.1 locks a device out for 60 seconds after five consecutive wrong attempts and generates a new PIN. Click the Helper icon in the Mac menu bar to see the current PIN. During a session the PIN is asked only once; reconnects after app switching or Mac sleep reuse it automatically.</p>
+            </div>
+
+            <div class="step">
+                <h3>Held keys don't repeat, or scrolling is very slow?</h3>
+                <p>Update both VNC Pad and VNC Pad Helper to 1.1.1. Key repeat for held keys, pixel-smooth trackpad scrolling and double-click in Helper mode were added in that release.</p>
+            </div>
+
             <h2>System Requirements</h2>
             <ul>
-                <li>iPadOS 16.0 or later</li>
+                <li>iPadOS 17.0 or later</li>
                 <li>Screen Sharing enabled on the target Mac</li>
                 <li>Both devices on the same local network</li>
                 <li>External keyboard recommended for best experience</li>
+                <li>Input method support requires <a href="helper.html">VNC Pad Helper</a> on the Mac (macOS 13 or later)</li>
+            </ul>
+
+            <h2>Current Versions</h2>
+            <ul>
+                <li>VNC Pad (iPad): 1.1.1</li>
+                <li>VNC Pad Helper (Mac): 1.1.1, <a href="helper.html">download and release notes</a></li>
             </ul>
         </div>
     </div>
