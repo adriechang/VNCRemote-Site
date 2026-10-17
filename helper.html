@@ -43,8 +43,8 @@
             {
                 "@type": "HowToStep",
                 "name": "Download Helper",
-                "text": "Download VNCRemoteHelper-1.1.1.dmg from the official releases page. The app is notarized by Apple for safe installation.",
-                "url": "https://github.com/adriechang/VNCRemote-Site/releases/download/v1.1.1/VNCRemoteHelper-1.1.1.dmg"
+                "text": "Download VNCRemoteHelper-1.1.2.dmg from the official releases page. The app is notarized by Apple for safe installation.",
+                "url": "https://github.com/adriechang/VNCRemote-Site/releases/download/v1.1.2/VNCRemoteHelper-1.1.2.dmg"
             },
             {
                 "@type": "HowToStep",
@@ -104,7 +104,7 @@
         <!-- 繁體中文 -->
         <div id="zh" lang="zh-Hant">
             <h1>VNC Pad Helper 安裝教學</h1>
-            <div class="meta">適用於 macOS | 版本 1.1.1（2026 年 10 月）</div>
+            <div class="meta">適用於 macOS | 版本 1.1.2（2026 年 10 月）</div>
 
             <div class="highlight">
                 <strong>什麼是 Helper？</strong><br>
@@ -130,7 +130,7 @@
 
             <div class="step">
                 <p><span class="step-number">1</span> <strong>下載 Helper</strong></p>
-                <p><a href="https://github.com/adriechang/VNCRemote-Site/releases/download/v1.1.1/VNCRemoteHelper-1.1.1.dmg" style="display:inline-block; background:#007aff; color:white; padding:10px 24px; border-radius:8px; text-decoration:none; font-weight:600;">下載 VNCRemoteHelper-1.1.1.dmg</a></p>
+                <p><a href="https://github.com/adriechang/VNCRemote-Site/releases/download/v1.1.2/VNCRemoteHelper-1.1.2.dmg" style="display:inline-block; background:#007aff; color:white; padding:10px 24px; border-radius:8px; text-decoration:none; font-weight:600;">下載 VNCRemoteHelper-1.1.2.dmg</a></p>
                 <p style="color:#86868b; font-size:0.9em;">已通過 Apple Notarization 認證，可安心安裝。舊版請至 <a href="https://github.com/adriechang/VNCRemote-Site/releases">Releases 頁面</a>。</p>
             </div>
 
@@ -196,6 +196,12 @@
 
             <h2>版本紀錄</h2>
 
+            <h3>1.1.2（2026 年 10 月）</h3>
+            <ul>
+                <li>TCP keepalive 放寬為約 30 秒才判定斷線（1.1.1 為約 11 秒），避免 VPN 或 Wi‑Fi 短暫卡頓就中斷 iPad 連線</li>
+                <li>修正視訊串流 header 在擷取初始化前送出的問題</li>
+            </ul>
+
             <h3>1.1.1（2026 年 10 月）</h3>
             <ul>
                 <li>按住 Backspace、方向鍵等會連續重複（搭配 VNC Pad 1.1.1；協定 v4，向下相容舊版 App）</li>
@@ -254,7 +260,7 @@
         <!-- English -->
         <div id="en" lang="en">
             <h1>VNC Pad Helper Setup Guide</h1>
-            <div class="meta">For macOS | Version 1.1.1 (October 2026)</div>
+            <div class="meta">For macOS | Version 1.1.2 (October 2026)</div>
 
             <div class="highlight">
                 <strong>What is Helper?</strong><br>
@@ -280,7 +286,7 @@
 
             <div class="step">
                 <p><span class="step-number">1</span> <strong>Download Helper</strong></p>
-                <p><a href="https://github.com/adriechang/VNCRemote-Site/releases/download/v1.1.1/VNCRemoteHelper-1.1.1.dmg" style="display:inline-block; background:#007aff; color:white; padding:10px 24px; border-radius:8px; text-decoration:none; font-weight:600;">Download VNCRemoteHelper-1.1.1.dmg</a></p>
+                <p><a href="https://github.com/adriechang/VNCRemote-Site/releases/download/v1.1.2/VNCRemoteHelper-1.1.2.dmg" style="display:inline-block; background:#007aff; color:white; padding:10px 24px; border-radius:8px; text-decoration:none; font-weight:600;">Download VNCRemoteHelper-1.1.2.dmg</a></p>
                 <p style="color:#86868b; font-size:0.9em;">Notarized by Apple for safe installation. Older versions are on the <a href="https://github.com/adriechang/VNCRemote-Site/releases">Releases page</a>.</p>
             </div>
 
@@ -345,6 +351,12 @@
             </ol>
 
             <h2>Release Notes</h2>
+
+            <h3>1.1.2 (October 2026)</h3>
+            <ul>
+                <li>TCP keepalive relaxed to about 30 seconds before a peer is considered gone (1.1.1: about 11 seconds), so a short VPN or Wi‑Fi stall no longer drops the iPad</li>
+                <li>Fixed the video stream header being sent before capture initialized</li>
+            </ul>
 
             <h3>1.1.1 (October 2026)</h3>
             <ul>
